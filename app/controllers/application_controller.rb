@@ -7,7 +7,17 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/' do
-    return erb :index
+  get '/start' do
+    erb :index
+    #This is working
   end
+
+  post '/input_info' do
+    @objective_input = params[:objective]
+    @question_input = params[:review_question]
+    @answer_input = params[:answer]
+    puts @all
+    erb :cardreveal
+  end
+
 end
